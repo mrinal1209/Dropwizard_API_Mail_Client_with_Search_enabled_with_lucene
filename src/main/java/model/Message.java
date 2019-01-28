@@ -10,21 +10,12 @@ public class Message {
     private long creationTime;
     private Integer messageParentId;
 
-    public Message(Integer creatorId, String subject, String body) {
-        //this.id = id;
+    public Message(Integer creatorId, String subject, String body ,Integer messageParentId) {
         this.creatorId = creatorId;
         this.subject = subject;
         this.body = body;
         this.creationTime = Instant.now().toEpochMilli();
-        //this.messageParentId = messageParentId;
-    }
-
-    public Message(Integer creatorId, String subject, String body, Integer messageParentId) {
-        this.creatorId = creatorId;
-        this.subject = subject;
-        this.body = body;
-        this.creationTime = Instant.now().toEpochMilli();
-        this.messageParentId = messageParentId;
+        this.messageParentId = messageParentId == null ? 0 : messageParentId;
     }
 
     public Message(Integer id, Integer creatorId, String subject, String body, long creationTime, Integer messageParentId) {
